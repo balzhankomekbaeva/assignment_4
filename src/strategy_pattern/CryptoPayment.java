@@ -1,0 +1,8 @@
+package strategy_pattern;
+
+public class CryptoPayment implements PaymentStrategy {
+    @Override
+    public void processPayment(double amount) {
+        System.out.println("Processing cryptocurrency payment of $" + amount);
+    }
+}
