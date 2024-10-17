@@ -10,7 +10,6 @@ class GenreFilterIterator implements Iterator {
         this.genre = genre;
         this.position = 0;
     }
-
     @Override
     public boolean hasNext() {
         while (position < playlist.getSongs().size()) {
