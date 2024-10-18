@@ -64,4 +64,44 @@ This project demonstrates the **Command Pattern** using a TV remote control. The
    - It sets the commands on the remote and simulates pressing the buttons and undoing actions.
 
 
+# Playlist Iterator System - Iterator Pattern
+
+This project demonstrates the **Iterator Pattern** using a music playlist. The pattern is used to access elements (songs) from the playlist in different ways, such as by sequential order, shuffle, or filtering by genre.
+
+### Classes and Their Roles:
+
+1. **Iterator**:
+   - This is an interface that defines two methods: `hasNext()` and `next()`.
+   - Every specific way of iterating through the playlist (like sequential, shuffle, or genre filter) will implement this interface.
+
+2. **SequentialIterator**:
+   - Implements the `Iterator` interface.
+   - This class goes through the playlist in the order that the songs were added.
+
+3. **ShuffleIterator**:
+   - Implements the `Iterator` interface.
+   - It shuffles the playlist and goes through the songs in random order.
+
+4. **GenreFilterIterator**:
+   - Implements the `Iterator` interface.
+   - This iterator filters the songs based on a specific genre and returns only the songs that match.
+
+5. **Playlist**:
+   - This class represents the collection of songs.
+   - It stores the songs in a list and has methods to get different types of iterators (sequential, shuffle, or genre filter).
+
+6. **Song**:
+   - This class represents a song with a `title` and a `genre`.
+   - Each song is added to the playlist and can be accessed through one of the iterators.
+
+7. **Main**:
+   - This class runs the program.
+   - It creates a playlist, adds songs, and then demonstrates the different types of iterators (sequential, shuffle, and filtering by genre).
+
+### How It Works:
+
+1. **SequentialIterator**: Goes through the songs in the order they were added to the playlist.
+2. **ShuffleIterator**: Randomly shuffles the songs and iterates through them in a random order.
+3. **GenreFilterIterator**: Filters the playlist based on a specific genre (e.g., "Rock") and only returns songs that match that genre.
+
 
