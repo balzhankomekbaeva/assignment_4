@@ -321,3 +321,45 @@ Implements the `ReportGenerator` class to format plain text reports, defining it
 ### `ReportingSystem`
 Provides functionality to generate reports using different report generators.
 
+
+# Visitor Pattern Implementation
+
+This project demonstrates the Visitor Pattern, a behavioral design pattern that lets you separate an algorithm from the object structure on which it operates. By using the Visitor Pattern, you can add new operations to existing object structures without modifying those structures.
+
+## Overview
+
+The Visitor Pattern is particularly useful when you want to perform operations on a group of objects with different types. In this implementation, we calculate the areas of various geometric shapes (Circle, Rectangle, and Triangle) using a visitor.
+
+## Components
+
+- **Shape Interface**: Defines the accept(Visitor visitor) method that accepts a visitor.
+- **Concrete Shapes**: Implements the Shape interface:
+  - Circle
+  - Rectangle
+  - Triangle
+- **Visitor Interface**: Declares a visit method for each type of shape.
+- **AreaCalculator**: A concrete visitor that implements the Visitor interface to calculate the area of each shape.
+- **Drawing Class**: Manages a collection of shapes and accepts a visitor to perform operations on them.
+
+## Class Descriptions
+
+### Shape
+An interface that defines the accept method for accepting a visitor.
+
+### Circle
+Implements the Shape interface, representing a circle with a specified radius.
+
+### Rectangle
+Implements the Shape interface, representing a rectangle with a specified length and width.
+
+### Triangle
+Implements the Shape interface, representing a triangle with a specified base and height.
+
+### Visitor
+An interface that declares methods for visiting different shapes.
+
+### AreaCalculator
+Implements the Visitor interface to calculate the area of the shapes by overriding the visit methods.
+
+### Drawing
+Maintains a collection of shapes and provides a method to calculate their areas by accepting a visitor.
