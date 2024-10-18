@@ -166,3 +166,47 @@ This project demonstrates the **Memento Pattern**, which is used to save and res
    - The document can be restored to any previously saved version using the version control.
 
 
+# Weather Data Observer Pattern
+
+This project demonstrates the Observer Pattern through a weather data monitoring system.
+
+## Classes Overview
+
+### 1. `WeatherDisplay` (Interface)
+Defines the method for updating weather data:
+- **`update(float temperature, float humidity, float pressure)`**
+
+### 2. `CurrentConditionsDisplay`
+Implements `WeatherDisplay` to show current temperature and humidity.
+- **Attributes**: `temperature`, `humidity`
+- **Methods**: 
+  - `update(...)`: Updates data and calls `display()`.
+  - `display()`: Prints current conditions.
+
+### 3. `ForecastDisplay`
+Implements `WeatherDisplay` to forecast weather based on pressure.
+- **Attributes**: `lastPressure`, `currentPressure`
+- **Methods**: 
+  - `update(...)`: Updates pressure data and calls `display()`.
+  - `display()`: Prints weather forecast based on pressure trends.
+
+### 4. `StatisticsDisplay`
+Implements `WeatherDisplay` to show temperature statistics.
+- **Attributes**: `maxTemp`, `minTemp`, `tempSum`, `numReadings`
+- **Methods**: 
+  - `update(...)`: Updates temperature statistics and calls `display()`.
+  - `display()`: Prints average, max, and min temperatures.
+
+### 5. `WeatherStation`
+Acts as the subject that notifies observers of weather changes.
+- **Attributes**: `observers`, `temperature`, `humidity`, `pressure`
+- **Methods**: 
+  - `registerObserver(...)`: Adds an observer.
+  - `removeObserver(...)`: Removes an observer.
+  - `notifyObservers()`: Updates all observers.
+  - `setWeatherData(...)`: Sets new weather data and notifies observers.
+
+### 6. `WeatherData` (Main Class)
+Contains the `main` method to initialize the `WeatherStation` and its displays, simulating weather data updates.
+
+
