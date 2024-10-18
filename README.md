@@ -1,4 +1,4 @@
-# Expense Approval System
+# Expense Approval System - chain of responsibility
 
 This project is an example of how an expense approval system works using a chain of responsibility pattern. Each class plays a role in the process of approving expenses based on the amount.
 
@@ -31,4 +31,37 @@ This project is an example of how an expense approval system works using a chain
    - This is the class that runs the program.
    - It creates different expense requests and sends them through the approval process.
    - The program prints out who approves each request.
+  
+
+# TV Remote Control - Command Pattern
+
+This project demonstrates the **Command Pattern** using a TV remote control. The idea is that you can assign different commands (like turning the TV on and off) to the remote and also undo those commands.
+
+### Classes and Their Roles:
+
+1. **Command**:
+   - This is an interface that defines two methods: `execute()` and `undo()`.
+   - Every specific command (like turning the TV on or off) will implement this interface.
+
+2. **TurnTVOn and TurnTVOff**:
+   - These classes implement the `Command` interface.
+   - **TurnTVOn**: Turns the TV on when `execute()` is called, and can undo the action by turning the TV off using the `undo()` method.
+   - **TurnTVOff**: Turns the TV off when `execute()` is called, and can undo the action by turning the TV back on using the `undo()` method.
+
+3. **TV**:
+   - This class represents the TV itself.
+   - It has two methods: `on()` to turn the TV on and `off()` to turn the TV off.
+   - These methods are called by the `TurnTVOn` and `TurnTVOff` commands.
+
+4. **RemoteControl**:
+   - This class represents the remote control.
+   - It can store commands in slots, execute them, and undo the last executed command.
+   - When you press a button on the remote (`pressButton()`), it runs the command in that slot. You can also undo the last command with `pressUndo()`.
+
+5. **Main**:
+   - This is the class that runs the program.
+   - It creates the remote control, a TV object, and two commands (to turn the TV on and off).
+   - It sets the commands on the remote and simulates pressing the buttons and undoing actions.
+
+
 
