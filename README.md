@@ -136,3 +136,32 @@ This project demonstrates the **Mediator Pattern** using a chat room. In this pa
    - It creates a chat room (the mediator) and multiple users (regular and premium).
    - The users are added to the chat room, and they send messages to each other through the mediator.
 
+
+# Document Version Control - Memento Pattern
+
+This project demonstrates the **Memento Pattern**, which is used to save and restore the state of an object (in this case, a document) without exposing its internal structure. The **memento** is a snapshot of the document at a specific point in time, and it can be used to revert back to earlier versions.
+
+### Classes and Their Roles:
+
+1. **Document**:
+   - This class represents the document we are working with.
+   - It has content that can be updated, saved, and restored.
+   - The `save()` method creates a memento (a `DocumentVersion`) to capture the current state of the document.
+   - The `restore()` method restores the document’s state from a specific version (memento).
+
+2. **DocumentVersion**:
+   - This class acts as the **memento** that stores the state (content) of the document.
+   - It holds the document’s content at the time of saving and provides access to that content.
+
+3. **VersionControl**:
+   - This class is responsible for managing multiple versions (mementos) of the document.
+   - It can:
+     - Save new versions (`saveVersion()`).
+     - Retrieve a specific version (`getVersion()`).
+     - List all saved versions (`listVersions()`).
+
+4. **Main**:
+   - This class runs the program.
+   - It creates a document, changes its content over time, and saves each version.
+   - The document can be restored to any previously saved version using the version control.
+
