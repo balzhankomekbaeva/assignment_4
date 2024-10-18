@@ -98,10 +98,41 @@ This project demonstrates the **Iterator Pattern** using a music playlist. The p
    - This class runs the program.
    - It creates a playlist, adds songs, and then demonstrates the different types of iterators (sequential, shuffle, and filtering by genre).
 
-### How It Works:
+# Chat Room System - Mediator Pattern
 
-1. **SequentialIterator**: Goes through the songs in the order they were added to the playlist.
-2. **ShuffleIterator**: Randomly shuffles the songs and iterates through them in a random order.
-3. **GenreFilterIterator**: Filters the playlist based on a specific genre (e.g., "Rock") and only returns songs that match that genre.
+This project demonstrates the **Mediator Pattern** using a chat room. In this pattern, the **mediator** handles communication between users instead of users interacting directly with each other.
 
+### Classes and Their Roles:
+
+1. **ChatMediator**:
+   - This is an interface that defines two methods:
+     - `sendMessage()`: Sends a message from one user to all other users.
+     - `addUser()`: Adds a user to the chat room.
+
+2. **ChatRoom**:
+   - Implements the `ChatMediator` interface.
+   - Acts as the central hub (the mediator) for communication between users.
+   - It manages a list of users and ensures that when a message is sent, only other users receive it (the sender does not receive their own message).
+
+3. **User** (Abstract Class):
+   - This is an abstract class that represents a user in the chat room.
+   - It defines two abstract methods:
+     - `sendMessage()`: Sends a message to other users via the mediator (chat room).
+     - `receiveMessage()`: Receives a message from the chat room.
+   - Each user has a `mediator` (chat room) and a `name`.
+
+4. **RegularUser**:
+   - Extends the `User` class.
+   - Implements the `sendMessage()` and `receiveMessage()` methods for regular users.
+   - When a regular user sends a message, it prints the user's name along with the message.
+
+5. **PremiumUser**:
+   - Extends the `User` class.
+   - Implements the `sendMessage()` and `receiveMessage()` methods for premium users.
+   - When a premium user sends or receives a message, it is marked as a "Premium" user.
+
+6. **Main**:
+   - This class runs the program.
+   - It creates a chat room (the mediator) and multiple users (regular and premium).
+   - The users are added to the chat room, and they send messages to each other through the mediator.
 
