@@ -252,4 +252,37 @@ Represents the final state after delivery. It disallows any further state change
 Represents the state when an order is cancelled. It prevents any further actions on the order.
 
 
+# Strategy Pattern Implementation
+
+This project demonstrates the Strategy Pattern, a behavioral design pattern that enables selecting an algorithm's behavior at runtime. It allows a class to delegate the responsibility of executing an algorithm to different strategy classes.
+
+## Overview
+
+The Strategy Pattern is particularly useful when you have multiple ways of performing a task and want to choose the appropriate method dynamically. In this implementation, we handle various payment methods in an online shopping context.
+
+## Components
+
+- **PaymentStrategy Interface**: Defines a common interface for all payment strategies.
+- **Concrete Strategies**: Implements different payment methods:
+  - `CreditCardPayment`
+  - `PayPalPayment`
+  - `CryptoPayment`
+- **ShoppingCart Class**: Maintains a reference to a `PaymentStrategy` and delegates payment processing to the selected strategy.
+
+## Class Descriptions
+
+### `PaymentStrategy`
+An interface that defines the method `processPayment(double amount)` for payment processing.
+
+### `CreditCardPayment`
+Implements the `PaymentStrategy` interface to process credit card payments.
+
+### `PayPalPayment`
+Implements the `PaymentStrategy` interface to process payments via PayPal.
+
+### `CryptoPayment`
+Implements the `PaymentStrategy` interface to process cryptocurrency payments.
+
+### `ShoppingCart`
+Represents a shopping cart that can utilize different payment strategies. It allows setting the payment method and performing checkout operations.
 
