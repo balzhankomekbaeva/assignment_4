@@ -209,4 +209,47 @@ Acts as the subject that notifies observers of weather changes.
 ### 6. `WeatherData` (Main Class)
 Contains the `main` method to initialize the `WeatherStation` and its displays, simulating weather data updates.
 
+# State Pattern Implementation
+
+This project demonstrates the State Pattern, a behavioral design pattern that allows an object to alter its behavior when its internal state changes. The pattern encapsulates state-specific behavior in separate classes and delegates the request to the current state object.
+
+## Overview
+
+The State Pattern is particularly useful for managing the state of an object with multiple behaviors. In this implementation, we manage the states of an `Order` object, which can transition through various states such as New, Paid, Shipped, Delivered, and Cancelled.
+
+## Components
+
+- **State Interface**: Defines the methods for handling state transitions (`payOrder`, `shipOrder`, `deliverOrder`, `cancelOrder`).
+- **Order Class**: Maintains a reference to the current state and provides methods to delegate state-related actions.
+- **State Implementations**: Various states of the order, each implementing the `State` interface:
+  - `NewState`
+  - `PaidState`
+  - `ShippedState`
+  - `DeliveredState`
+  - `CancelledState`
+
+## Class Descriptions
+
+### `Order`
+Represents the context that maintains the current state. It has methods to perform actions based on the current state.
+
+### `State`
+An interface that defines the operations available to all states.
+
+### `NewState`
+Handles the initial state of the order, allowing payment and cancellation.
+
+### `PaidState`
+Represents the state after payment is made. It allows shipping the order and cancelling it.
+
+### `ShippedState`
+Represents the state after the order has been shipped. It allows delivery and disallows cancellation.
+
+### `DeliveredState`
+Represents the final state after delivery. It disallows any further state changes.
+
+### `CancelledState`
+Represents the state when an order is cancelled. It prevents any further actions on the order.
+
+
 
