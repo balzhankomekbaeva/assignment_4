@@ -286,3 +286,38 @@ Implements the `PaymentStrategy` interface to process cryptocurrency payments.
 ### `ShoppingCart`
 Represents a shopping cart that can utilize different payment strategies. It allows setting the payment method and performing checkout operations.
 
+
+# Template Pattern Implementation
+
+This project demonstrates the Template Pattern, a behavioral design pattern that defines the skeleton of an algorithm in a method, deferring some steps to subclasses. The Template Pattern lets subclasses redefine certain steps of an algorithm without changing its structure.
+
+## Overview
+
+The Template Pattern is particularly useful when you have a common process that varies in specific steps across different implementations. In this implementation, we generate reports in various formats (PDF, HTML, and Plain Text) using a template method.
+
+## Components
+
+- **ReportGenerator Abstract Class**: Defines the template method `generateReport()` and abstract methods for formatting the report's header, body, and footer.
+- **Concrete Implementations**: Classes that provide specific implementations for formatting reports:
+  - `PDFReportGenerator`
+  - `HTMLReportGenerator`
+  - `PlainTextReportGenerator`
+- **ReportingSystem Class**: Responsible for generating reports using the specified report generator.
+
+## Class Descriptions
+
+### `ReportGenerator`
+An abstract class that provides the template method for report generation. It defines the common structure for generating reports, ensuring the sequence of operations is followed.
+
+### `PDFReportGenerator`
+Implements the `ReportGenerator` class to format PDF reports, providing specific implementations for the header, body, and footer.
+
+### `HTMLReportGenerator`
+Implements the `ReportGenerator` class to format HTML reports with custom header, body, and footer formatting.
+
+### `PlainTextReportGenerator`
+Implements the `ReportGenerator` class to format plain text reports, defining its own formatting for the header, body, and footer.
+
+### `ReportingSystem`
+Provides functionality to generate reports using different report generators.
+
